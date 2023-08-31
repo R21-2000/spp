@@ -3,6 +3,6 @@
 }@endif">
     <a class="nav-link" href="{{url('spp')}}">
         <i class="fas fa-fw fa-cube"></i>
-        <span>Spp nich</span>
+        <span>Page Spp nich</span>
     </a>
 </li>

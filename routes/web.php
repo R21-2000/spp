@@ -28,6 +28,7 @@ Route::delete('pembayaran/delete/{id}',[Spp::class, 'delete'])->name('pembayaran
 Route::get('pembayaran/edit/{id}',[Spp::class, 'edit'])->name('pembayaran.edit');
 Route::put('pembayaran/update/{id}',[Spp::class, 'update'])->name('pembayaran.update');
 Route::get('/siswa',[Spp::class, 'index']);
+Route::get('excel-export',[Spp::class, 'exportExcel']);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' =>['cekUserLogin:admin']], function () {

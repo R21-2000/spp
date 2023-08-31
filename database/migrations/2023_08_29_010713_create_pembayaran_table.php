@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->date('tgl-bayar');
+            $table->date('tgl_bayar');
             $table->integer('jumlah');
             $table->timestamps();
         });
