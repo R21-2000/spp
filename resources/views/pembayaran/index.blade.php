@@ -2,17 +2,14 @@
 
 @section('konten')
     <div class="container-fluid">
-        <!-- Header halaman -->
-        <h1 class="h3 mb-2 text-gray-800">Data Pembayaran</h1>
-        <p class="mb-4">Manajemen Spp | Spp</p>
-
-        <!-- Tabel Data -->
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Pembayaran SPP</h1>
+        <p class="mb-4">Spp</p>
+        <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">CRUD Laravel
-
-                    <button class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#tambahData">Tambah
-                        Data</button>
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <button class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#tambahData">Data baru</button>
                 </h6>
             </div>
             <div class="card-body">
@@ -41,20 +38,18 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger"
-                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                                                    onclick="return confirm('Yakin nih?')">  <i class="fas fa-trash">Apus</button></i>
                                             </form>
-                                        
-
-
-
-                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#editModal{{ $row->id }}">Edit</a>
+                                            <br>
+                                        <a href="#" class="btn btn-sm btn-warning" 
+                                        data-toggle="modal" data-target="#editModal{{ $row->id }}"><i class="fas fa-pen">Ubah dikit</a></i>
                                     </td>
                                 </tr>
                                 <div class="modal fade" id="editModal{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $row->id }}" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="editModalLabel{{ $row->id }}">Edit Data Siswa</h5>
+                                                <h5 class="modal-title" id="editModalLabel{{ $row->id }}">Edit datanya disini</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -64,11 +59,11 @@
                                                     @csrf
                                                     @method('PUT')
                                                     <div class="form-group">
-                                                        <label for="nama">Nama Siswa</label>
+                                                        <label for="nama">Siswa o namaewa</label>
                                                         <input type="text" class="form-control" id="nama" name="nama" value="{{ $row->nama }}">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="tgl_bayar">Tanggal Pembayaran</label>
+                                                        <label for="tgl_bayar">Tanggal Bayar</label>
                                                         <input type="date" class="form-control" id="tgl_bayar" name="tgl_bayar" value="{{ $row->tgl_bayar }}">
                                                     </div>
                                                     <div class="form-group">
@@ -76,8 +71,8 @@
                                                         <input type="number" class="form-control" id="jumlah" name="jumlah" value="{{ $row->jumlah }}">
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Gajadi</button>
+                                                        <button type="submit" class="btn btn-primary">Simpan</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -87,6 +82,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <a href="/excel-export"><button class="btn btn-sm btn-success">Ekspor ke excel disini</button></a>
                 </div>
             </div>
         </div>
@@ -97,21 +93,21 @@
         <div class="modal-dialog modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data </h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Data Baru</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">X</span>
+                        <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form action="{{ url('pembayaran/save') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="nama">Nama Siswa</label>
+                            <label for="nama">Siswa o namaewa</label>
                             <input type="text" class="form-control" id="nama" aria-describedby="nama"
                                 name="nama">
                         </div>
                         <div class="form-group">
-                            <label for="tanggal">Tanggal Pembayaran</label>
+                            <label for="tanggal">Tanggal Bayar</label>
                             <input type="date" class="form-control" id="tgl_bayar" name="tgl_bayar">
                         </div>
                         <div class="form-group">
@@ -122,7 +118,7 @@
                 </div>
                 <div class="modal-footer">
 
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Gajadi</button>
 
                     <input type="submit" class="btn btn-primary" value="Simpan" name="simpan">
                     </form>
@@ -155,7 +151,6 @@
             })
         @endif
     </script>
-
 
 
 @endsection

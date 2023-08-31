@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\SppModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\SppModel;
 
-class Siswa extends Controller
+
+class siswa extends Controller
 {
     public function index()
     {
@@ -15,8 +15,9 @@ class Siswa extends Controller
         $data = [
             'title' => 'Spp | MyApp',
             'active' => 'Spp',
-            'pembayaran' => $pembayaran,
+            'pembayaran' => $pembayaran
         ];
         return view('siswa.index', $data);
     }
+   
 }

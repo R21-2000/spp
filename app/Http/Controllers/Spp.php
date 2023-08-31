@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facedes\Auth;
 use App\Models\SppModel;
-use Excel;
 use App\Exports\SppExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Spp extends Controller
 {
@@ -51,6 +51,4 @@ class Spp extends Controller
     {
         return Excel::download(new SppExport, 'spp-excel.xlsx');
     }
-
-
 }

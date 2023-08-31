@@ -25,9 +25,10 @@ class CekUserLogin
         $user = Auth::user();
         if ($user->level == $rules) {
             return $next($request);
-        }
-        return redirect('login')->withErrors([
+            return redirect('login')->withErrors([
             'belumLogin' => "Anda Tidak Memiliki Akses",
         ]);
+        }
+        return $next($request);
     }
 }
